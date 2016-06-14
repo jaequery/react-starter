@@ -1,0 +1,18 @@
+app:
+  image: node:4-onbuild
+  volumes:
+  - ./:/app
+  - node_modules:/app/node_modules
+  working_dir: /app
+  command: bash -c "npm install && node server.js"
+  links:
+  - mongo
+  environment:
+  - MONGODB=mongodb://mongo:27017/app
+  - VIRTUAL_HOST=changeme.com
+  ports:
+  - 3000:3000
+  expose:
+  - 3000
+mongo:
+  image: mongo
