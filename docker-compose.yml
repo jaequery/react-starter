@@ -9,9 +9,7 @@ app:
   - mongo
   environment:
   - MONGODB=mongodb://mongo:27017/app
-  - VIRTUAL_HOST=changeme.com
-  ports:
-  - 3000:3000
+  - VIRTUAL_HOST=react-starter.docker
   expose:
   - 3000
 mongo:
